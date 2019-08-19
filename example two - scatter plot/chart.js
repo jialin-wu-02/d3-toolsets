@@ -65,11 +65,11 @@ const render = data => {
         .attr('x', innerWidth / 2)
         .text('Population')
 
-    g.selectAll('rect').data(data)
-        .enter().append("rect")
-            .attr("y", d => yScale(yValue(d)))
-            .attr("width", d => xScale(xValue(d)))
-            .attr("height", yScale.bandwidth()) // bandwith: computed with of a single bar
+    g.selectAll('circle').data(data)
+        .enter().append("circle")
+            .attr("cy", d => yScale(yValue(d)))
+            .attr("cx", d => xScale(xValue(d)))
+            .attr("r", yScale.bandwidth() / 2) // bandwith: computed with of a single bar
 
     // adding title
     g.append('text')
